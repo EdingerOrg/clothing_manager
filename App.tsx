@@ -20,26 +20,7 @@ import {
 import {
 	Colors
 } from 'react-native/Libraries/NewAppScreen';
-
-type MyOwnProps = {
-	initialState: boolean
-}
-
-const MyOwnComponent = (props: MyOwnProps) =>
-{
-	const [getActive, setActive] = useState(props.initialState);
-
-	return (
-		<View>
-		<Text selectable={getActive}>
-			{getActive ? "you can select me" : "you can select me NOT"}
-		</Text>
-		<Button
-			onPress={() => setActive(!getActive)}
-			title="switch the selectability"/>
-		</View>
-	)
-}
+import MyOwnComponent from './core/components/MyOwnComponent';
 
 function App(): React.JSX.Element {
 	const isDarkMode = useColorScheme() === 'dark';
