@@ -6,7 +6,7 @@ type MyOwnProps = {
 	initialState: boolean
 }
 
-const MyOwnComponent: React.FC<MyOwnProps> = (props: MyOwnProps) =>
+const MyOwnComponent = (props: MyOwnProps) =>
 {
 	const [active, setActive] = useState(props.initialState);
 	const [numberOfPresses, setNumberOfPresses] = useState(0);

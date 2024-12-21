@@ -21,6 +21,7 @@ import {
 	Colors
 } from 'react-native/Libraries/NewAppScreen';
 import MyOwnComponent from './src/components/MyOwnComponent';
+import MyOwnClassComponent from './src/components/MyOwnClassComponent';
 
 function App(): React.JSX.Element {
 	const isDarkMode = useColorScheme() === 'dark';
@@ -42,6 +43,8 @@ function App(): React.JSX.Element {
 			placeholder="some text here"/>
 		<MyOwnComponent initialState={true}/>
 		<MyOwnComponent initialState={false}/>
+		<MyOwnClassComponent message={null}/>
+		<MyOwnClassComponent message="I have a different message than null"/>
 	</SafeAreaView>
 	);
 }
