@@ -20,7 +20,7 @@ import {
 import {
 	Colors
 } from 'react-native/Libraries/NewAppScreen';
-import MyOwnComponent from './core/components/MyOwnComponent';
+import MyOwnComponent from './src/components/MyOwnComponent';
 
 function App(): React.JSX.Element {
 	const isDarkMode = useColorScheme() === 'dark';
