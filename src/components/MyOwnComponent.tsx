@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Button, Text, View } from "react-native";
+import { Button, Text, TouchableOpacity, View } from "react-native";
+import buttonStyles from "../assets/styles/buttonStyles";
 
 
 type MyOwnProps = {
@@ -19,14 +20,16 @@ const MyOwnComponent = (props: MyOwnProps) =>
 		<Text>
 			{numberOfPresses}
 		</Text>
-		<Button
+		<TouchableOpacity
 			onPress={
 				() => {
 					setActive(!active);
 					setNumberOfPresses(numberOfPresses + 1);
 				}
 			}
-			title="switch the selectability"/>
+			style={buttonStyles.defaultButton}>
+			<Text>Switch the selectability</Text>
+		</TouchableOpacity>
 		</View>
 	)
 }
