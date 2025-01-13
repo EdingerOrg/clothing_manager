@@ -1,10 +1,12 @@
-import { StatusBar, Text, TextInput, useColorScheme, View } from "react-native";
+import { StatusBar, Text, TextInput, useColorScheme, View, Button } from "react-native";
 import MyOwnComponent from "../components/MyOwnComponent";
 import MyOwnClassComponent from "../components/MyOwnClassComponent";
-import { useTheme } from "@react-navigation/native";
+import { useNavigation, useTheme } from "@react-navigation/native";
 
 const HomeScreen = () => 
 {
+	const navigation = useNavigation();
+
 	return (
 	<View>
 		<StatusBar
@@ -19,6 +21,7 @@ const HomeScreen = () =>
 		<MyOwnComponent initialState={false}/>
 		<MyOwnClassComponent message={null}/>
 		<MyOwnClassComponent message="I have a different message than null"/>
+		<Button onPress={() => navigation.navigate("Details")} title="Go to Details"/>
 	</View>
 	);
 }

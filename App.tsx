@@ -9,10 +9,12 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import HomeScreen from './src/screens/HomeScreen';
 import { createStaticNavigation, DarkTheme, DefaultTheme } from '@react-navigation/native';
 import { useColorScheme } from 'react-native';
+import DetailScreen from './src/screens/DetailScreen';
 
 const RootStack = createNativeStackNavigator({
 	screens: {
-		Home: HomeScreen
+		Home: HomeScreen,
+		Details: DetailScreen
 	},
 });
 
