@@ -6,19 +6,27 @@
  */
 
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import HomeScreen from './src/screens/HomeScreen';
-import { createStaticNavigation, DarkTheme, DefaultTheme } from '@react-navigation/native';
+import LoginScreen from './src/screens/LoginScreen';
+import { createStaticNavigation, DarkTheme, DefaultTheme, StaticParamList } from '@react-navigation/native';
 import { useColorScheme } from 'react-native';
-import DetailScreen from './src/screens/DetailScreen';
+import HomeScreen from './src/screens/HomeScreen';
 
 const RootStack = createNativeStackNavigator({
 	screens: {
-		Home: HomeScreen,
-		Details: DetailScreen
+		Login: LoginScreen,
+		Home: HomeScreen
 	},
 });
 
 const Navigation = createStaticNavigation(RootStack);
+
+type RootStackParamList = StaticParamList<typeof RootStack>;
+
+declare global {
+	namespace ReactNavigation {
+		interface RootParamList extends RootStackParamList {}
+	}
+}
 
 const App = () => {
 	const isDarkMode: boolean = useColorScheme() === "dark";

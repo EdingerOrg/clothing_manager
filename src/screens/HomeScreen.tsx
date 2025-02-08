@@ -1,29 +1,22 @@
-import { StatusBar, Text, TextInput, useColorScheme, View, Button } from "react-native";
-import MyOwnComponent from "../components/MyOwnComponent";
-import MyOwnClassComponent from "../components/MyOwnClassComponent";
-import { useNavigation, useTheme } from "@react-navigation/native";
+import { Background, Text } from "@react-navigation/elements"
+import { FlatList, StyleSheet, View } from "react-native"
+import { StaticScreenProps } from "@react-navigation/native"
 
-const HomeScreen = () => 
+type HomeScreenProps = StaticScreenProps<{
+	username: string
+}>;
+
+const HomeScreen = ( {route} : HomeScreenProps) => 
 {
-	const navigation = useNavigation();
-
-	return (
-	<View>
-		<StatusBar
-		barStyle={!useTheme().dark ? 'light-content' : 'dark-content'}
-		/>
-		<Text>
-			just some text
-		</Text>
-		<TextInput
-			placeholder="some text here"/>
-		<MyOwnComponent initialState={true}/>
-		<MyOwnComponent initialState={false}/>
-		<MyOwnClassComponent message={null}/>
-		<MyOwnClassComponent message="I have a different message than null"/>
-		<Button onPress={() => navigation.navigate("Details")} title="Go to Details"/>
+	return <View>
+		<Text>Hello {route.params.username}!</Text>
+		<FlatList
+		data={["detail1", "detail2"]}
+		renderItem={item =>
+		<View style={{backgroundColor: 'blue'}}>
+			<Text>{item.item}</Text>
+		</View>}/>
 	</View>
-	);
 }
 
 export default HomeScreen;
